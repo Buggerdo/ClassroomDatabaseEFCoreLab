@@ -31,6 +31,23 @@ namespace ClassroomDatabaseEFCoreLab
                         context.Students.Add(student);
                     }
                     context.SaveChanges();
+                    }
+                }
+            }
+
+
+            //Create another method called DisplayAllDB
+            //Loop through all of the students and display their StudentId and their name
+            static void DisplayAllDB()
+            {
+                using(var context = new ClassContext())
+                {
+                    foreach(var student in context.Students)
+                    {
+                        Console.WriteLine(value: $"Id: {student.StudentId} Name: {student.Name}");
+                    }
+                }
+            }
 
                     //for demo purposes
                     var allStudents = context.Students.ToList();
