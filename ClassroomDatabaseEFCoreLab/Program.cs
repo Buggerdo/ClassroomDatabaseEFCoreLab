@@ -75,7 +75,7 @@
                         {
                             try
                             {
-                                Student student = context.Students.Where(s => s.StudentId == index).First();
+                                Student student = context.Students.Where(s => s.StudentId == index).;
                                 Console.WriteLine(student.Name);
                             }
                             catch(Exception)
