@@ -1,12 +1,12 @@
-﻿using System.Xml.Linq;
-
-namespace ClassroomDatabaseEFCoreLab
+﻿namespace ClassroomDatabaseEFCoreLab
 {
     public class Program
     {
         static void Main()
         {
-            //CreateDB();
+            CreateDB();
+            DisplayAllDB();
+            DisplayStudentDB();
 
 
 
@@ -29,17 +29,17 @@ namespace ClassroomDatabaseEFCoreLab
                     //Make your code run CreateDB if the database is empty
                     if(allStudents.Count == 0)
                     {
-                    var students = new List<Student> {
+                        var students = new List<Student> {
                          new Student { Name = "Troy", Food = "Pizza", Hometown = "Detroit" },
                          new Student { Name = "Tom", Food = "Steak", Hometown = "Coral" },
                          new Student { Name = "Jude", Food = "Chicken", Hometown = "Grand Rapids" },
-                    };
+                        };
 
-                    foreach(var student in students)
-                    {
-                        context.Students.Add(student);
-                    }
-                    context.SaveChanges();
+                        foreach(var student in students)
+                        {
+                            context.Students.Add(student);
+                        }
+                        context.SaveChanges();
                     }
                 }
             }
@@ -58,10 +58,37 @@ namespace ClassroomDatabaseEFCoreLab
                 }
             }
 
-                    //for demo purposes
-                    var allStudents = context.Students.ToList();
-                    Console.WriteLine($"Current student count: {allStudents.Count}");
-                }
+
+            //Create another method called DisplayStudentDB
+            //Ask for the user to pick a studentId.
+            //Use Linq to grab the right student.
+            //Display the students favorite food and their hometown
+            static void DisplayStudentDB()
+            {
+                do
+                {
+                    Console.WriteLine("Please enter the ID of a student you would like to know more about.");
+                    string userInput = Console.ReadLine();
+                    using(var context = new ClassContext())
+                    {
+                        if(int.TryParse(userInput, out int index))
+                        {
+                            try
+                            {
+                                Student student = context.Students.Where(s => s.StudentId == index).First();
+                                Console.WriteLine(student.Name);
+                            }
+                            catch(Exception)
+                            {
+                                Console.WriteLine($"Sorry {index} is not a valid Id.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Sorry {userInput} is not valid input");
+                        }
+                    }
+                } while(true);
             }
         }
     }

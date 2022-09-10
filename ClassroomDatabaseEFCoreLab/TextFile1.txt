@@ -21,15 +21,17 @@ This should create 1 new student for everyone in the class.
 Add their name, favorite food and hometown to the student.
 Once all students have been added, save the changes to the DB.
 Run this method once, then comment it out. We only want it to fill the db
+
 Create another method called DisplayAllDB
 Loop through all of the students and display their StudentId and their name
+
 Create another method called DisplayStudentDB
 Ask for the user to pick a studentId. 
 Use Linq to grab the right student.
 Display the students favorite food and their hometown
 
 
-	Extra credit
+Extra credit
 Make your code run CreateDB if the database is empty
 Make your code loop for as many times as they want to display students
 Validation on inputs
