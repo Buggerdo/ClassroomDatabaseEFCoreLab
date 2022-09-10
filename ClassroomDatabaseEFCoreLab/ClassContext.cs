@@ -7,7 +7,7 @@ namespace ClassroomDatabaseEFCoreLab
         public DbSet<Student> Students { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=TROYPC;Database=CodeFirstExample;Integrated Security=SSPI;");
+            optionsBuilder.UseSqlServer(@"Server=TROYPC;Database=ClassroomDatabaseEFCoreLab;Integrated Security=SSPI;");
         }
     }
 }
