@@ -8,9 +8,10 @@
             string input = Console.ReadLine();
             if ("yes".Contains(input.ToLower()))
             {
+                Console.Clear();
                 return true;
             }
-                return false;
+            return false;
         }
     }
 }
