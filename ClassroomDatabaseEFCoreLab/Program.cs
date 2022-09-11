@@ -59,7 +59,7 @@
                 do
                 {
                     DisplayAllDB();
-                    Console.WriteLine("Please enter the ID of a student you would like to know more about.");
+                    Console.Write("Please enter the ID of a student you would like to know more about: ");
                     string userInput = Console.ReadLine();
                     using (var context = new ClassContext())
                     {
